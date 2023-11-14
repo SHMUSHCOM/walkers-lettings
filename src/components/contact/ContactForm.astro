@@ -7,7 +7,7 @@
           We'd love to learn more about you and what we can build together.
         </p>
       </div>
-      <form action="#" method="POST" class="mt-3 flex flex-col gap-y-6">
+      <form id="contact-form"  class="mt-3 flex flex-col gap-y-6">
         <!-- Full name input -->
         <div>
           <label for="full-name" class="sr-only">Full name</label>
@@ -21,18 +21,17 @@
           />
         </div>
 
-        <!-- Email input -->
         <div>
-          <label for="email" class="sr-only">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            autocomplete="email"
-            class="hover:ring-primary-600 focus:ring-primary-600 dark:hover:ring-primary-400 dark:focus:ring-primary-400 bg-primary-50 dark:bg-primary-950 ring-primary-900/40 dark:ring-primary-200/40 placeholder:text-primary-950/60 dark:placeholder:text-primary-200/60 block w-full appearance-none rounded-md border-0 px-4 py-4 text-base ring-1 transition focus:outline-none focus:ring-2"
-            placeholder="Email"
-          />
-        </div>
+            <label for="subject" class="sr-only">Subject</label>
+            <input
+              type="text"
+              name="subject"
+              id="subject"
+              autocomplete="subject"
+              class="hover:ring-primary-600 focus:ring-primary-600 dark:hover:ring-primary-400 dark:focus:ring-primary-400 bg-primary-50 dark:bg-primary-950 ring-primary-900/40 dark:ring-primary-200/40 placeholder:text-primary-950/60 dark:placeholder:text-primary-200/60 block w-full appearance-none rounded-md border-0 px-4 py-4 text-base ring-1 transition focus:outline-none focus:ring-2"
+              placeholder="Subject"
+            />
+          </div>
 
         <!-- Message textarea -->
         <div>
@@ -57,3 +56,26 @@
     </div>
   </div>
 </section>
+
+<script is:inline>
+
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Fetch form data
+      const formData = new FormData(event.target);
+
+      // Extract form values
+      const name = formData.get('full-name');
+      const subject = formData.get('subject');
+      const message = formData.get('message');
+      const email = "info@walkers4u.com";
+
+      // Construct mailto link
+      const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\n\nMessage: ${message}`)}`;
+
+      // Open default email client with the mailto link
+    //   window.location.href = mailtoLink;
+      window.open(mailtoLink, '_blank');
+    });
+</script>
