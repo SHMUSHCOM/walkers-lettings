@@ -30,8 +30,13 @@ const services = [
   {
     name: "Property Purchasing Assistance",
     description:
-      "Navigating the purchase of a rental and development properties can be complex and comes with huge financial risk. Our assistance services provide support throughout the purchasing process, from property search and evaluation to negotiation and completion, ensuring a smooth and profitable acquisition.",
+      "Navigating the purchase of a rental and development property can be complex and comes with huge financial risk. Our assistance services provide support throughout the purchasing process, from property search and evaluation to negotiation and completion, ensuring a smooth and profitable acquisition.",
   },
+  {
+  name: "Property Sales & Staging",
+  description:
+    "Maximize the value of your property. Walkers, offer strategic marketing, professional staging services, and a commitment to securing a fast and profitable sale. Whether you're looking to sell a residential or commercial property, our team is equipped with the knowledge and resources to showcase your property's unique features, attracting potential buyers and ensuring the highest possilbe price",
+},
 ];
 
 
@@ -45,7 +50,6 @@ const services = [
         {
           services.map((service) => (
             <div class="bg-primary-500/10 dark:bg-primary-400/10 flex flex-col gap-12 rounded-3xl px-6 py-8">
-              <p class="text-sm">{service.step}</p>
               <div class="flex flex-col gap-4">
                 <h3 class="text-xl font-medium">{service.name}</h3>
                 <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
